@@ -30,4 +30,28 @@ describe('pos', () => {
 
     expect(console.log).toHaveBeenCalledWith(expectText);
   });
+
+
+  it('should return the count of produce num object when invoke countProduceNum given tags', () => {
+
+      const tags = [
+          'ITEM000001',
+          'ITEM000001',
+          'ITEM000001',
+          'ITEM000001',
+          'ITEM000001',
+          'ITEM000003-2.5',
+          'ITEM000005',
+          'ITEM000005-2',
+      ];
+
+      spyOn(console, 'log');
+
+      countProduceNum(tags);
+
+      const expectText =  Object({ ITEM000001: 5, ITEM000003: 2.5, ITEM000005: 3 });
+
+      expect(console.log).toHaveBeenCalledWith(expectText);
+  });
+
 });
